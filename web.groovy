@@ -1,4 +1,4 @@
-String basePath = 'folder'
+String basePath = 'folder1'
 folder(basePath) {
     description('Folder containing all jobs for folder-1')
 }
