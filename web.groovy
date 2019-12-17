@@ -21,7 +21,9 @@ folder(basePath) {
      steps{
 
      shell ("""docker-compose down &&\
-               docker-compose up -d""")
+               docker-compose up -d &&\
+               echo "APP URL" &&\
+               curl http://localhost:8903/LoginWebApp/""")
        
      }
 }     
