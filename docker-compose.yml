@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+   tomcat:
+    image: tomcat:9.0.27
+    container_name: tomcatcontainer
+    volumes:
+      - ./target/LoginWebApp.war:/usr/local/tomcat/webapps/LoginWebApp.war
+    depends_on:
+      - mysqldb
+    ports:
+      - "8903:8080"
+    links:
+      - mysqldb
+
+   mysqldb:
+    image: mysql:5.7
+    container_name: mysqlcontainer
+    restart: always
+    environment:
+      MYSQL_USER: root
+      MYSQL_ROOT_PASSWORD: mypassword
+      MYSQL_DATABASE: userdb
+    volumes:
+     - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    ports:
+       - "3306:3306"
