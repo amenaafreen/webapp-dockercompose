@@ -3,7 +3,6 @@ folder(basePath) {
     description('Folder containing all jobs for folder-1')
 }
    job("$basePath/Job-scm-checkout") {
-   stages{
    stage('Git checkout')
    {
    steps{
@@ -36,5 +35,5 @@ folder(basePath) {
        
      }
 }     
-}     
+     
 }
