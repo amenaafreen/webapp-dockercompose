@@ -5,7 +5,7 @@ folder(basePath) {
    job("$basePath/scm-checkout") {
   
     scm {
-        github('amenaafreen/demo-java', 'master')
+        github('amenaafreen/webapp-dockercompose', 'master')
     }
    triggers {
      githubPush()
