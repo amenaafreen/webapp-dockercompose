@@ -24,7 +24,7 @@ folder(basePath) {
                docker-compose up -d &&\
                sleep 10s
                echo "APP URL" &&\
-               curl -Is http://localhost:8903/LoginWebApp/"""
+               curl -Is http://localhost:8903/LoginWebApp/""")
        
      }
 steps {
