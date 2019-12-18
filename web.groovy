@@ -30,12 +30,12 @@ folder(basePath) {
      }
 job("$basePath/Nexus-Artifact-Uploader"){
 steps {
-      nexusArtifactUploader {
+      nexusArtifactUploader{
         nexusVersion('nexus3')
         protocol('http')
         nexusUrl('localhost:8051/')
-        groupId('com.nisum')
-        version('1.0')
+        groupId('sp.sd')
+        version('2.4')
         repository('maven-repo')
         artifact {
             artifactId('nexus-artifact-uploader')
