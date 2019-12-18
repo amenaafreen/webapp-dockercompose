@@ -2,7 +2,7 @@ String basePath = 'folder1'
 folder(basePath) {
     description('Folder containing all jobs for folder-1')
 }
-   job("$basePath/scm-checkout") {
+   mavenJob("$basePath/scm-checkout") {
   
     scm {
         github('amenaafreen/webapp-dockercompose', 'master')
@@ -11,9 +11,7 @@ folder(basePath) {
      githubPush()
     }
 
-   steps {
-        shell('mvn clean package')
-        }
+   goals('clean package')
    publishers {
        //archive the war file generated
        archiveArtifacts 'target/*.war'
@@ -37,7 +35,6 @@ steps {
             property('repositoryId', 'nexus')
             property('url', 'http://localhost:8051/#admin/repository/repositories:maven-repo')
             property('file', 'target/LogicWebApp.war')
-            mavenInstallation("Maven 3.6.3")
            }
 
 
