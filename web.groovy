@@ -28,19 +28,18 @@ folder(basePath) {
        
      }
 steps {
-      nexusArtifactUploader{
-        nexusVersion('nexus3')
-        protocol('http')
-        nexusUrl('localhost:8051/')
-        groupId('sp.sd')
-        version('2.4')
-        repository('maven-repo')
-        artifact {
-            artifactId('LogicWebApp')
-            type('war')
-            file('/Users/aafreen/.jenkins/workspace/webapp/target/LogicWebApp.war')
-        }
-      }
-    }     
+    maven {
+            goals('deploy:deploy-file')
+            property('groupId', 'com.spring.maventest')
+            property('artifactId', 'nexusartifact')
+            property('version', '1.0.0')
+            property('packaging', 'war')
+            property('repositoryId', 'nexus')
+            property('url', 'http://localhost:8051/#admin/repository/repositories:maven-repo')
+            property('file', 'target/LogicWebApp.war')
+            mavenInstallation("Maven 3.6.3")
+           }
 
+
+}
 }
