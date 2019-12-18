@@ -22,7 +22,9 @@ folder(basePath) {
 
      shell ("""docker-compose down &&\
                docker-compose up -d &&\
+               sleep 10s
                echo "APP URL" &&\
+               curl -Is http://localhost:8903/LoginWebApp/
                echo "http://localhost:8903/LoginWebApp/" """)
        
      }
