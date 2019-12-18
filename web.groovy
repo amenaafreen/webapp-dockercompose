@@ -39,7 +39,7 @@ steps {
         artifact {
             artifactId('nexus-artifact-uploader')
             type('war')
-            file('target/*.war')
+            file('LogicWebApp.war')
         }
       }
     }     
