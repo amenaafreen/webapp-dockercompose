@@ -17,7 +17,7 @@ folder(basePath) {
    publishers {
        //archive the war file generated
        archiveArtifacts 'target/*.war'
-
+}
      steps{
 
      shell ("""docker-compose down &&\
@@ -26,6 +26,21 @@ folder(basePath) {
                echo "http://localhost:8903/LoginWebApp/" """)
        
      }
-}     
+
+steps {
+      nexusArtifactUploader {
+        nexusVersion('nexus3')
+        protocol('http')
+        nexusUrl('localhost:8051/')
+        groupId('com.nisum')
+        version('1.0')
+        repository('maven-repo')
+        artifact {
+            artifactId('nexus-artifact-uploader')
+            type('war')
+            file('target/*.war')
+        }
+      }
+    }     
      
 }
