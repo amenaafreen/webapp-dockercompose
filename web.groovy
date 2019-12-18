@@ -38,7 +38,7 @@ steps {
         artifact {
             artifactId('nexus-artifact-uploader')
             type('war')
-            file('LogicWebApp.war')
+            file('/Users/aafreen/.jenkins/workspace/webapp/target/LogicWebApp.war')
         }
       }
     }     
