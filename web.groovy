@@ -36,7 +36,7 @@ steps {
         version('2.4')
         repository('maven-repo')
         artifact {
-            artifactId('nexus-artifact-uploader')
+            artifactId('LogicWebApp')
             type('war')
             file('/Users/aafreen/.jenkins/workspace/webapp/target/LogicWebApp.war')
         }
