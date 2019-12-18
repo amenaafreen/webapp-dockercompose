@@ -28,7 +28,7 @@ folder(basePath) {
                echo "http://localhost:8903/LoginWebApp/" """)
        
      }
-
+job("$basePath/Nexus-Artifact-Uploader"){
 steps {
       nexusArtifactUploader {
         nexusVersion('nexus3')
@@ -44,5 +44,5 @@ steps {
         }
       }
     }     
-     
+}
 }
