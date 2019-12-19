@@ -16,7 +16,7 @@ folder(basePath) {
        //archive the war file generated
        archiveArtifacts 'target/*.war'
 }
-     steps{
+     preBuildSteps{
 
      shell ("""docker-compose down &&\
                docker-compose up -d &&\
@@ -25,7 +25,7 @@ folder(basePath) {
                curl -Is http://localhost:8903/LoginWebApp/""")
        
      }
-steps {
+     postBuildSteps {
     maven {
             goals('deploy:deploy-file')
             property('groupId', 'com.spring.maventest')
