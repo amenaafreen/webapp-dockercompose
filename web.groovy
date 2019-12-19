@@ -1,8 +1,8 @@
-String basePath = 'folder1'
+String basePath = 'folder2'
 folder(basePath) {
     description('Folder containing all jobs for folder-1')
 }
-   mavenJob("$basePath/scm-checkout") {
+   mavenJob("$basePath/maven-job") {
   
     scm {
         github('amenaafreen/webapp-dockercompose', 'master')
