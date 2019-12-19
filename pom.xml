@@ -27,10 +27,4 @@
 	<build>
 		<finalName>LoginWebApp</finalName>
 	</build>
-        <distributionManagement>
-           <repository>
-              <id>nexus</id>
-              <url>http://localhost:8051/#admin/repository/repositories:maven-repo</url>
-              </repository>
-         </distributionManagement>
 </project>
