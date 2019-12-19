@@ -28,14 +28,13 @@ folder(basePath) {
 
 postBuildSteps {
     maven {
-            goals('deploy:deploy-file')
             property('groupId', 'com.spring.maventest')
             property('artifactId', 'nexusartifact')
             property('version', '1.0.0')
             property('packaging', 'war')
             property('repositoryId', 'nexus')
             property('url', 'http://localhost:8051/#admin/repository/repositories:maven-repo')
-            property('file', 'target/LogicWebApp.war')
+            property('file', 'target/LoginWebApp.war')
            }
 
 
