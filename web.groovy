@@ -1,11 +1,13 @@
 String basePath = 'jobfolder'
+String gitRepository = 'amenaafreen/webapp-dockercompose'
+
 folder(basePath) {
-    description('Folder containing all jobs for folder-1')
+    description('Folder containing all jobs for folder')
 }
    mavenJob("$basePath/maven-job") {
-  
+   description('Build the Java Project: ' + gitRepository)
     scm {
-        github('amenaafreen/webapp-dockercompose', 'master')
+        github('gitRepository', 'master')
     }
    triggers {
      githubPush()
