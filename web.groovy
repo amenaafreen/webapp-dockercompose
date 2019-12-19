@@ -7,7 +7,7 @@ folder(basePath) {
    mavenJob("$basePath/maven-job") {
    description('Build the Java Project: ' + gitRepository)
     scm {
-        github('gitRepository', 'master')
+        github(gitRepository, 'master')
     }
    triggers {
      githubPush()
