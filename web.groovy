@@ -25,4 +25,20 @@ folder(basePath) {
                curl -Is http://localhost:8903/LoginWebApp/""")
        
      }
+     
+     postBuildSteps{
+        configure{ project ->
+    project/publishers << 'org.jfrog.hudson.ArtifactoryRedeployPublisher' {
+    details {
+      artifactoryUrl('http://localhost:8081/artifactory')
+      artifactoryName('Artifactory Version 4.15.0')
+      repositoryKey('Jenkins-Integration')
+      snapshotsRepositoryKey('Jenkins-Snapshot')
+    }
+    deployBuildInfo(true)
+    deployArtifacts(true)
+    evenIfUnstable(false)
+      }
+   }
+}
 }
